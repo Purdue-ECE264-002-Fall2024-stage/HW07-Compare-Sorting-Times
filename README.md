@@ -10,18 +10,15 @@ Learning Goals
 * Measure time to run the program
 * Print run times
 
-Check Spelling Between two Words
+Compare Sorting Algorithms
 ==============
-In this assignment, you will...
+In this assignment, you will compare the different run times between sorting algorithms. You are expected to understand the different time complexities of each algorithm. You will be studying: bubble sort, insertion sort, selection sort, and quick sort. 
 
-![image](https://github.com/user-attachments/assets/01aca60e-dba8-4b4f-9000-f0722bc44072)
-More instructions on how to implement this can be accessed through the wikipedia link. You will implement this in levenshtein.c (hint: recursion is key). 
-
-To generate the list of words used in testcases, usr/share/dict/words was used, which is a built-in linux file of a word list. You can even make your own testcases and play around with it if you like! To generate a random list of words (say 50 words), type into your terminal: "shuf -n 50 /usr/share/dict/words".
+You are responsible for measuring the run time of each algorithm. This assignment is different from past assignments in that you are not expected to match the expected outputs exactly. You should use these values as a guide but different computers will have different speeds. The autograder for this assignment will look at the overall time complexity trend your program produces. For more information on time complexities and the different algorithms please review the GeeksForGeeks links provided above each function in sorting.c
 
 What to Do
 ==============
-Complete the ...
+Complete the getSortingTime function in sorting.c You will need to get the run times for the provided sorting algorithms. You are not expected to implement these algorithms as we have provided these for you.
 
 Check Memory Leak
 =================
@@ -30,29 +27,17 @@ Your program must not crash and must not leak memory.  Use Valgrind to check for
 
 Functions Needed
 ================
-In checker.c:
-int countWords(char* filename)
-
-bool readWords(char* filename, WordDistance* wd, int numword)
-
-void calculateDistance(WordDistance* wd, int numword, const char* tocheck)
-
-void sortDistance(WordDistance* wd, int numword)
-
-In Levenshtein.c:
-int Levenshtein(const char* str1, const char* str2)
+In sorting.c:
+void getSortingTime(char * filename, int size)
 
 	
 Structure
 =========
-The structure looks like
-``` 
-typedef struct
-{
-  char word[MAXLENGTH]; 
-  int distance;
-} WordDistance;
-```
+Your program should output the timing values in the following structure:
+"Bubble sort of size x took y seconds"
+"Insertion sort of size x took y seconds"
+...
+Please copy the order shown in the expected outputs (bubble, insertion, selection, quick)
 
 WHAT TO SUBMIT
 ==============
@@ -64,7 +49,7 @@ else.  The teaching staff is strictly prohibited seeing anything on
 your computer for grading.
 
 ```
-levenshtein.c, checker.c
+zip hw07.zip sorting.c
 ```
 
 Upload `hw07.zip`.

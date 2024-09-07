@@ -1,3 +1,7 @@
+// ***
+// *** Do NOT submit this file.
+// ***
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -6,7 +10,7 @@
 int main(int argc, char ** argv) {
     // check correct number of arguments are passed
     if (argc != 2) {
-        printf("Usage: ./main <size>\n");
+        printf("Usage: ./hw07 <size>\n");
         return EXIT_FAILURE;
     }
 
@@ -22,7 +26,6 @@ int main(int argc, char ** argv) {
 
         getSortingTime(i, filename);
     }
-
 
     return 0;
 }

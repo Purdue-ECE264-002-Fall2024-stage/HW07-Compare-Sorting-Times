@@ -1,22 +1,16 @@
 // ***
 // *** You MUST modify this file.
-// 
+// ***
 
 #include <stdio.h>
 #include "sorting.h"
 #include <time.h>
 #include <stdlib.h>
 
-// Do NOT modify this function
-void loadFile(int arr[], int size)
-{
-    char filename[256]; // create a buffer to store the filename
-    sprintf(filename, "inputs/array%d.bin", size);
-    FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
 
-    fread(arr, sizeof(int), size, file); // read the file into the array
-}
-
+// ***
+// *** You MUST modify this function.
+// ***
 // HINT: When passing the array to the sorting functions, it will modify the original array as well
 void getSortingTime(int size, char * filename)
 {
@@ -61,21 +55,23 @@ void getSortingTime(int size, char * filename)
     end = clock();
     time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
     printf("Quick sort of size %d took %f seconds\n", size, time_taken);
-    
-
 }
 
-// Do NOT modify this function
-// You may wish to use this function to check your work
-void printArray(int arr[], int size)
+// Do NOT modify anything below this line
+// ******************************************************************* */
+// Do NOT modify this function!!
+// This function reads the binary file and loads the data into the array
+void loadFile(int arr[], int size)
 {
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
+    char filename[256]; // create a buffer to store the filename
+    sprintf(filename, "inputs/array%d.bin", size);
+    FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
+
+    fread(arr, sizeof(int), size, file); // read the file into the array
 }
 
-
 // Do NOT modify this function
+// This function will sort the array from smallest to largest using bubble sort
 // https://www.geeksforgeeks.org/bubble-sort-algorithm/
 void bubbleSort(int arr[], int size) 
 {
@@ -93,6 +89,7 @@ void bubbleSort(int arr[], int size)
 }
 
 // Do NOT modify this function
+// This function will sort the array from smallest to largest using insertion sort
 // https://www.geeksforgeeks.org/insertion-sort-algorithm/
 void insertionSort(int arr[], int size)
 {
@@ -115,6 +112,7 @@ void insertionSort(int arr[], int size)
 }
 
 // Do NOT modify this function
+// This function will sort the array from smallest to largest using selection sort
 // https://www.geeksforgeeks.org/selection-sort-algorithm-2/
 void selectionSort(int arr[], int size)
 {
@@ -144,6 +142,7 @@ void selectionSort(int arr[], int size)
 }
 
 // Do NOT modify this function
+// This function will sort the array from smallest to largest using quick sort
 // https://www.geeksforgeeks.org/quick-sort-algorithm/
 void quickSort(int arr[], int low, int high)
 {
@@ -160,6 +159,8 @@ void quickSort(int arr[], int low, int high)
 }
 
 // Do NOT modify this function
+// This function will partition the array into two parts and return the index of the pivot
+// It is used in the implentation of the quickSort function
 int partition(int arr[], int low, int high)
 {
     // select the rightmost element as pivot
