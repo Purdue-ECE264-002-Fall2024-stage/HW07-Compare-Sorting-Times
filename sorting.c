@@ -1,14 +1,89 @@
+// ***
+// *** You MUST modify this file.
+// 
+
 #include <stdio.h>
 #include "sorting.h"
+#include <time.h>
+#include <stdlib.h>
 
-// Do not modify this function
+// Do NOT modify this function
+void loadFile(int arr[], int size)
+{
+    char filename[256]; // create a buffer to store the filename
+    sprintf(filename, "inputs/array%d.bin", size);
+    FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
+
+    fread(arr, sizeof(int), size, file); // read the file into the array
+}
+
+// HINT: When passing the array to the sorting functions, it will modify the original array as well
+void getSortingTime(int size, char * filename)
+{
+    // Initalize clock variables
+    clock_t start, end;
+
+    // Create an array to store the sorted array
+    int * arr = malloc(size * sizeof(int));
+
+    // Open the file and load in array data
+    FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
+
+    // Call each sorting function
+    fread(arr, sizeof(int), size, file); // read the file into the array
+    // start the clock
+    start = clock();
+    // sort the array
+    bubbleSort(arr, size);
+    // end the clock
+    end = clock();
+    // Calculate the time taken
+    double time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
+    printf("Bubble sort of size %d took %f seconds\n", size, time_taken);
+
+    fread(arr, sizeof(int), size, file); // read the file into the array
+    start = clock();
+    insertionSort(arr, size);
+    end = clock();
+    time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
+    printf("Insertion sort of size %d took %f seconds\n", size, time_taken);
+
+    fread(arr, sizeof(int), size, file); // read the file into the array
+    start = clock();
+    selectionSort(arr, size);
+    end = clock();
+    time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
+    printf("Selection sort of size %d took %f seconds\n", size, time_taken);
+
+    fread(arr, sizeof(int), size, file); // read the file into the array
+    start = clock();
+    quickSort(arr, 0, size - 1);
+    end = clock();
+    time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
+    printf("Quick sort of size %d took %f seconds\n", size, time_taken);
+    
+
+}
+
+// Do NOT modify this function
+// You may wish to use this function to check your work
+void printArray(int arr[], int size)
+{
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+
+// Do NOT modify this function
 // https://www.geeksforgeeks.org/bubble-sort-algorithm/
 void bubbleSort(int arr[], int size) 
 {
     int i, j, temp;
+    // loop over array elements
     for (i = 0; i < size - 1; i++) {
         for (j = 0; j < size - i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
+            if (arr[j] > arr[j + 1]) { // if the element is greater than the next element swap them
                 temp = arr[j];
                 arr[j] = arr[j + 1];
                 arr[j + 1] = temp;
@@ -17,7 +92,7 @@ void bubbleSort(int arr[], int size)
     }
 }
 
-// Do not modify this function
+// Do NOT modify this function
 // https://www.geeksforgeeks.org/insertion-sort-algorithm/
 void insertionSort(int arr[], int size)
 {
@@ -39,7 +114,7 @@ void insertionSort(int arr[], int size)
     }
 }
 
-// Do not modify this function
+// Do NOT modify this function
 // https://www.geeksforgeeks.org/selection-sort-algorithm-2/
 void selectionSort(int arr[], int size)
 {
@@ -68,7 +143,7 @@ void selectionSort(int arr[], int size)
     }
 }
 
-// Do not modify this function
+// Do NOT modify this function
 // https://www.geeksforgeeks.org/quick-sort-algorithm/
 void quickSort(int arr[], int low, int high)
 {
@@ -84,6 +159,7 @@ void quickSort(int arr[], int low, int high)
     }
 }
 
+// Do NOT modify this function
 int partition(int arr[], int low, int high)
 {
     // select the rightmost element as pivot
@@ -111,21 +187,4 @@ int partition(int arr[], int low, int high)
     arr[high] = temp;
 
     return i + 1;
-}
-
-// Do not modify this function
-void loadFile(int arr[], int size)
-{
-    char filename[256]; // create a buffer to store the filename
-    sprintf(filename, "inputs/array%d.bin", size);
-    FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
-
-    fread(arr, sizeof(int), size, file); // read the file into the array
-}
-
-void printArray(int arr[], int size)
-{
-    for (int i = 0; i < size; i++) {
-        printf("%d ", arr[i]);
-    }
 }

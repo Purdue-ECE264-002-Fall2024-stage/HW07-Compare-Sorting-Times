@@ -1,0 +1,8 @@
+Bubble sort of size 10 took 0.000002 seconds
+Insertion sort of size 10 took 0.000000 seconds
+Selection sort of size 10 took 0.000000 seconds
+Quick sort of size 10 took 0.000001 seconds
+Bubble sort of size 100 took 0.000017 seconds
+Insertion sort of size 100 took 0.000001 seconds
+Selection sort of size 100 took 0.000007 seconds
+Quick sort of size 100 took 0.000015 seconds

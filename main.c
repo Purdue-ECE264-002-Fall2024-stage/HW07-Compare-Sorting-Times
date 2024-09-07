@@ -1,46 +1,28 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "sorting.h"
 
-int main() {
-    int arr[] = {5, 2, 8, 12, 3};
-    int size = sizeof(arr) / sizeof(arr[0]);
-    
-    printf("Array before sorting: ");
-    printArray(arr, size);
-    
-    bubbleSort(arr, size);
-    printf("\nBubble Sort: ");
-    printArray(arr, size);
+int main(int argc, char ** argv) {
+    // check correct number of arguments are passed
+    if (argc != 2) {
+        printf("Usage: ./main <size>\n");
+        return EXIT_FAILURE;
+    }
 
-    int arr2[] = {5, 2, 8, 12, 3};
+    if(atoi(argv[1]) % 10 != 0)
+    {
+        printf("Size must be a multiple of 10\n");
+        return EXIT_FAILURE;
+    }
 
-    quickSort(arr2, 0, size - 1);
-    printf("\nQuick Sort: ");
-    printArray(arr2, size);
+    for (int i = 10; i <= atoi(argv[1]); i*=10) {
+        char filename[256];
+        sprintf(filename, "inputs/array%d.bin", i);
 
-    int arr3[] = {5, 2, 8, 12, 3};
+        getSortingTime(i, filename);
+    }
 
-    insertionSort(arr3, size);
-    printf("\nInsertion Sort: ");
-    printArray(arr3, size);
-
-    int arr4[] = {5, 2, 8, 12, 3};
-
-    selectionSort(arr4, size);
-    printf("\nSelection Sort: ");
-    printArray(arr4, size);
-    
-    //--------------------------------------------------
-    // Test the loadingFile function
-    int arr1[10];
-    loadFile(arr1, 10);
-    printf("\nArray loaded from file: ");
-    printArray(arr1, 10);
-
-    // test sorting on the loaded array
-    bubbleSort(arr1, 10);
-    printf("\nBubble Sort: ");
-    printArray(arr1, 10);
 
     return 0;
 }

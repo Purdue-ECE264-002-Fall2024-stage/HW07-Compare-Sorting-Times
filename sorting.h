@@ -1,11 +1,13 @@
 #ifndef SORTING_H
 #define SORTING_H
 
-// Sorint function declarations
+// Homework functions
+void getSortingTime(int size, char * filename);
+
+// Sort function declarations
 void bubbleSort(int arr[], int n);
 void insertionSort(int arr[], int n);
 void selectionSort(int arr[], int n);
-void mergeSort(int arr[], int l, int r);
 void quickSort(int arr[], int low, int high);
 void printArray(int arr[], int size);
 int partition(int arr[], int low, int high);
