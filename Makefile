@@ -5,10 +5,13 @@
 WARNING = -Wall -Wshadow --pedantic
 ERROR = -Wvla -Werror
 GCC = gcc -std=c11 -g $(WARNING) $(ERROR) 
-SRCS = main.c sorting.c
+SRCS = sorting.c main.c
 OBJS = $(SRCS:%.c=%.o)
 
 main: $(OBJS) 
+	$(GCC) $(OBJS) -o main
+
+generateFiles: $(OBJS)
 	$(GCC) $(OBJS) -o main
 
 .c.o: 
