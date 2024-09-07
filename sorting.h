@@ -15,5 +15,4 @@ int partition(int arr[], int low, int high);
 // File I/O function declarations
 void loadFile(int arr[], int size);
 
-
 #endif // SORTING_H
