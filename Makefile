@@ -5,7 +5,7 @@
 WARNING = -Wall -Wshadow --pedantic
 ERROR = -Wvla -Werror
 GCC = gcc -std=c11 -g $(WARNING) $(ERROR)
-VAL = valgrind --tool=memcheck --log-file=memcheck.bin --leak-check=full --verbose
+VAL = valgrind --tool=memcheck --log-file=memcheck.bin --leak-check=full --show-leak-kinds=all --verbose
 
 SRCS = sorting.c main.c
 
