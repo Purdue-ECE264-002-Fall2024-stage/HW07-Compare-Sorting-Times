@@ -20,10 +20,10 @@ int main(int argc, char ** argv) {
         return EXIT_FAILURE;
     }
 
+    char filename[256];
     for (int i = 10; i <= atoi(argv[1]); i*=10) {
-        char filename[256];
-        sprintf(filename, "inputs/array%d.bin", i);
 
+        sprintf(filename, "inputs/array%d.bin", i);
         getSortingTime(i, filename);
     }
 

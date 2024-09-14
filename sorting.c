@@ -55,6 +55,8 @@ void getSortingTime(int size, char * filename)
     end = clock();
     time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
     printf("Quick sort of size %d took %f seconds\n", size, time_taken);
+
+    free(arr); // free allocated memory
 }
 
 // Do NOT modify anything below this line
