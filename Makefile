@@ -4,8 +4,11 @@
 
 WARNING = -Wall -Wshadow --pedantic
 ERROR = -Wvla -Werror
-GCC = gcc -std=c11 -g $(WARNING) $(ERROR) 
+GCC = gcc -std=c11 -g $(WARNING) $(ERROR)
+VAL = valgrind --tool=memcheck --log-file=memcheck.bin --leak-check=full --verbose
+
 SRCS = sorting.c main.c
+
 OBJS = $(SRCS:%.c=%.o)
 
 hw07: $(OBJS) 
@@ -30,6 +33,9 @@ test4: hw07
 
 test5: hw07
 	./hw07 100000 > outputs/output5
+
+testmemory: hw07
+	$(VAL) ./hw07 1000 > outputs/output3
 
 clean: # remove all machine generated files
 	rm -f hw07 *.o outputs/output? *~
