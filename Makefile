@@ -39,3 +39,4 @@ testmemory: hw07
 
 clean: # remove all machine generated files
 	rm -f hw07 *.o outputs/output? *~
+	rm memcheck.bin
