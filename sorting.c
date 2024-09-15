@@ -15,50 +15,13 @@
 void getSortingTime(int size, char * filename)
 {
     // Initalize clock variables
-    clock_t start, end;
-
     // Create an array to store the sorted array
-    int * arr = malloc(size * sizeof(int));
 
     // Open the file and load in array data
-    FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
-
-    // Call each sorting function
-    fread(arr, sizeof(int), size, file); // read the file into the array
-    // start the clock
-    start = clock();
-    // sort the array
-    bubbleSort(arr, size);
-    // end the clock
-    end = clock();
-    // Calculate the time taken
-    double time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
-    printf("Bubble sort of size %d took %f seconds\n", size, time_taken);
-
-    fread(arr, sizeof(int), size, file); // read the file into the array
-    start = clock();
-    insertionSort(arr, size);
-    end = clock();
-    time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
-    printf("Insertion sort of size %d took %f seconds\n", size, time_taken);
-
-    fread(arr, sizeof(int), size, file); // read the file into the array
-    start = clock();
-    selectionSort(arr, size);
-    end = clock();
-    time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
-    printf("Selection sort of size %d took %f seconds\n", size, time_taken);
-
-    fread(arr, sizeof(int), size, file); // read the file into the array
-    start = clock();
-    quickSort(arr, 0, size - 1);
-    end = clock();
-    time_taken = ((double)end - (double)start) / CLOCKS_PER_SEC;
-    printf("Quick sort of size %d took %f seconds\n", size, time_taken);
 
 
-    free(arr); // free allocated memory
-    fclose(file); // close opened file
+    // Call each sorting function and calculate the time taken
+    // Calculate the time taken for each sorting algorithm
 }
 
 // Do NOT modify anything below this line
