@@ -14,16 +14,14 @@ int main(int argc, char ** argv) {
         return EXIT_FAILURE;
     }
 
-    if(atoi(argv[1]) % 10 != 0)
-    {
+    if(atoi(argv[1]) % 10 != 0) {
         printf("Size must be a multiple of 10\n");
         return EXIT_FAILURE;
     }
 
+    char filename[256];
     for (int i = 10; i <= atoi(argv[1]); i*=10) {
-        char filename[256];
         sprintf(filename, "inputs/array%d.bin", i);
-
         getSortingTime(i, filename);
     }
 

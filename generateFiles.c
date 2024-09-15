@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h> // Add this line to include the declaration of the rand() function
+#include <time.h>
 
 void createArray(int arr[], int size);
 void shuffleArray(int arr[], int size);
@@ -22,10 +23,6 @@ int main() {
     
     return 0;
 }
-
-#include <stdio.h>
-#include <stdlib.h>
-#include <time.h>
 
 void createArray(int arr[], int size) {
     for (int i = 0; i < size; i++) {
