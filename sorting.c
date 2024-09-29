@@ -35,6 +35,7 @@ void loadFile(int arr[], int size)
     FILE *file = fopen(filename, "rb"); // open the file in read mode (binary)
 
     fread(arr, sizeof(int), size, file); // read the file into the array
+    fclose(file)
 }
 
 // Do NOT modify this function
